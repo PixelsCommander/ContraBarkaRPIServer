@@ -1,10 +1,13 @@
 const { parse } = require('macaddr');
 const { cloudLogin, loginDeviceByIp } = require("tp-link-tapo-connect");
 const arp = require("@network-utils/arp-lookup");
+const cors = require('cors');
 
 const express = require('express')
 const app = express()
 const port = 5001
+
+app.use(cors());
 
 app.get('/', (req, res) => {
     if (req.query.deviceName) {
